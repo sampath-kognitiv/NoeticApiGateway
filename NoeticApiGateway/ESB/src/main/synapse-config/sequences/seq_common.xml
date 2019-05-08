@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sequence name="seq_common" trace="disable" xmlns="http://ws.apache.org/ns/synapse">
+    <property name="messageType" scope="axis2" type="STRING" value="application/json"/>
+    <property name="ContentType" scope="axis2" type="STRING" value="application/json"/>
+    <property name="Accept" scope="transport" type="STRING" value="application/json"/>
+    <property action="remove" name="Content-Encoding" scope="transport"/>
+    <property action="remove" name="Accept-Encoding" scope="transport"/>
+    <property expression="get-property('system','deployProfile')" name="deployProfile" scope="default" type="STRING"/>
+    <log level="custom">
+        <property expression="get-property('deployProfile')" name="deployProfile"/>
+    </log>
+</sequence>
